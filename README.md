@@ -49,7 +49,7 @@
 ![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/eacf4690-7904-4ba8-b634-18edb7d14eec)
 
 <details>
-<summary><h1>📈아키텍처 상세문서</h1></summary>
+<summary><h2>📈아키텍처 상세문서</h2></summary>
 <div markdown="1">
   
 ### 1. 개요
