@@ -45,6 +45,56 @@
 >  ![intellijidea](https://img.shields.io/badge/IntelliJidea-000000.svg?&style=for-the-badge&logo=intellijidea&logoColor=white)
 <br/>
 
+# 📍백엔드 아키텍처
+![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/eacf4690-7904-4ba8-b634-18edb7d14eec)
+
+<details>
+<summary><h1>📈아키텍처 상세문서</h1></summary>
+<div markdown="1">
+  
+### 1. 개요
+
+본 문서는 백엔드 시스템을 위한 아키텍처 설계에 대한 상세 설명을 제공합니다. 시스템은 Amazon EKS (Elastic Kubernetes Service)를 기반으로, EC2 인스턴스에서 실행되는 워커 노드, AWS Elastic Load Balancer를 통한 Route 53 연결, Amazon ElastiCache (Redis), DockerHub, 그리고 GitHub Actions를 이용한 CI/CD 자동화 프로세스를 포함합니다.
+
+### 2. 인프라 구성
+
+### 2.1 Amazon EKS (Elastic Kubernetes Service)
+- 사용 목적
+  - 컨테이너화된 애플리케이션의 배포, 관리, 확장을 위한 관리형 Kubernetes 서비스 사용
+- 세부 구성
+  - 마스터 노드: EKS가 관리하는 Kubernetes 컨트롤 플레인
+  - 워커 노드: EC2 인스턴스에 배포된 애플리케이션을 실행하는 노드
+
+### 2.2 AWS Elastic Load Balancer & Route 53
+
+- 사용 목적
+  - 애플리케이션에 대한 트래픽 분산 및 도메인 이름을 통한 접근 관리
+  
+- 세부 구성:
+   - Elastic Load Balancer (ELB): 인바운드 트래픽을 EKS 클러스터의 워커 노드에 자동으로 분산
+   - Route 53: 사용자 정의 도메인 이름을 ELB와 연결하여 외부 접근성 향상**
+
+### 2.3 Amazon ElastiCache (Redis)
+- 사용 목적: 이메일 인증을 위한 인증코드 저장 및 관리(검증완료 또는 유효시간 만료 시 인증코드 삭제)
+
+### 2.4 DockerHub
+
+- 사용 목적: 애플리케이션 컨테이너 이미지의 저장 및 버전 관리
+- 세부 구성: 공개 또는 비공개 리포지토리 설정, 이미지 푸시 및 풀 관리
+
+### 2.5 GitHub Actions
+
+- 사용 목적: 코드 변경에 따른 자동화된 CI/CD 파이프라인 구현
+  
+- 세부 구성
+    - CI (Continuous Integration): 코드 커밋 및 푸시 시 자동 빌드 및 테스트 실행
+    - CD (Continuous Deployment): 테스트 성공 시 DockerHub로 컨테이너 이미지를 자동 배포 및 EKS 클러스터에 롤아웃
+
+<br/>
+</div>
+</details>
+</br>
+
 # 🚩 Git 브랜치 전략
 <p align="center">
   <img src= "https://github.com/Team-SNS/Pojang-BE/assets/78871184/b8a464a8-61ce-4bca-8082-be0affd5a342" width="100%" height="100%">
@@ -162,56 +212,6 @@
 # 📝 API명세서
 > [📂API DOCS](https://robust-skunk-0f9.notion.site/API-0f59651871d44b36a32874c9f8b4f0e0?pvs=4)
 <br/>
-
-# 📍백엔드 아키텍처
-![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/eacf4690-7904-4ba8-b634-18edb7d14eec)
-
-<details>
-<summary><h1>📈아키텍처 상세문서</h1></summary>
-<div markdown="1">
-  
-### 1. 개요
-
-본 문서는 백엔드 시스템을 위한 아키텍처 설계에 대한 상세 설명을 제공합니다. 시스템은 Amazon EKS (Elastic Kubernetes Service)를 기반으로, EC2 인스턴스에서 실행되는 워커 노드, AWS Elastic Load Balancer를 통한 Route 53 연결, Amazon ElastiCache (Redis), DockerHub, 그리고 GitHub Actions를 이용한 CI/CD 자동화 프로세스를 포함합니다.
-
-### 2. 인프라 구성
-
-### 2.1 Amazon EKS (Elastic Kubernetes Service)
-- 사용 목적
-  - 컨테이너화된 애플리케이션의 배포, 관리, 확장을 위한 관리형 Kubernetes 서비스 사용
-- 세부 구성
-  - 마스터 노드: EKS가 관리하는 Kubernetes 컨트롤 플레인
-  - 워커 노드: EC2 인스턴스에 배포된 애플리케이션을 실행하는 노드
-
-### 2.2 AWS Elastic Load Balancer & Route 53
-
-- 사용 목적
-  - 애플리케이션에 대한 트래픽 분산 및 도메인 이름을 통한 접근 관리
-  
-- 세부 구성:
-   - Elastic Load Balancer (ELB): 인바운드 트래픽을 EKS 클러스터의 워커 노드에 자동으로 분산
-   - Route 53: 사용자 정의 도메인 이름을 ELB와 연결하여 외부 접근성 향상**
-
-### 2.3 Amazon ElastiCache (Redis)
-- 사용 목적: 이메일 인증을 위한 인증코드 저장 및 관리(검증완료 또는 유효시간 만료 시 인증코드 삭제)
-
-### 2.4 DockerHub
-
-- 사용 목적: 애플리케이션 컨테이너 이미지의 저장 및 버전 관리
-- 세부 구성: 공개 또는 비공개 리포지토리 설정, 이미지 푸시 및 풀 관리
-
-### 2.5 GitHub Actions
-
-- 사용 목적: 코드 변경에 따른 자동화된 CI/CD 파이프라인 구현
-  
-- 세부 구성
-    - CI (Continuous Integration): 코드 커밋 및 푸시 시 자동 빌드 및 테스트 실행
-    - CD (Continuous Deployment): 테스트 성공 시 DockerHub로 컨테이너 이미지를 자동 배포 및 EKS 클러스터에 롤아웃
-
-<br/>
-</div>
-</details>
-
 
 <details>
 <summary><h1>📝 중점 기술 명세</h1></summary>
