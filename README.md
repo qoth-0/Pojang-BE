@@ -1,6 +1,6 @@
 # 🎁 포장의 민족
 <p align="center">
-  <img src= "https://github.com/Team-SNS/Pojang-BE/assets/78871184/ef7c6f3e-446d-47e8-a4e3-e19b9cd8d6b2" width="100%" height="100%">
+  <img src= "assets/images/banner.png" width="100%" height="100%">
 </p> 
 <br/>
 
@@ -113,14 +113,14 @@
 </br>
 
 # 📈 ERD 모델링
-[![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/7f99e0c7-968c-4821-99d5-b64a96f150c7)](https://www.erdcloud.com/d/xroTBFytvBCr9fm5S)
+[![포장의 민족](assets/images/erd.png)](https://www.erdcloud.com/d/xroTBFytvBCr9fm5S)
 <br/>
 `사진 클릭시 이동`
 
 </br>
 
 # 📝 API명세서
-[![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/c79ffc33-4017-40ad-bbc6-09dbdabd7fe0)](https://robust-skunk-0f9.notion.site/API-0f59651871d44b36a32874c9f8b4f0e0?pvs=4)
+[![📂API DOCS](assets/images/apis.png)](https://robust-skunk-0f9.notion.site/API-0f59651871d44b36a32874c9f8b4f0e0?pvs=4)
 <br/>
 `사진 클릭시 이동`
 
@@ -129,20 +129,17 @@
 # 📈 Architecture
 
 ## 📍Back-End
-![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/eacf4690-7904-4ba8-b634-18edb7d14eec)
+<img src= "assets/images/backend_architecture.png" width="100%" height="100%">
 
 ## 📍Front-End
-![image](https://github.com/qoth-0/Pojang-BE/assets/112849147/1f747d84-0251-48de-9a53-e648dad0e206)
-
-
-
+<img src= "assets/images/frontend_architecture.png" width="100%" height="100%">
 
 
 </br>
 
 # 🚩 Git 브랜치 전략
 <p align="center">
-  <img src= "https://github.com/Team-SNS/Pojang-BE/assets/78871184/b8a464a8-61ce-4bca-8082-be0affd5a342" width="100%" height="100%">
+  <img src= "assets/images/branch_strategy.png" width="100%" height="100%">
 </p> 
 
 - 저장소를 효과적으로 활용하기 위해 SNS팀은 Github-Flow 전략 브랜치를 생성한다.
